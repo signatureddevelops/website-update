@@ -6,6 +6,37 @@
   <title>Signature D — Private Club After Dark</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Light, corporate apply card */
+.card--light{
+  background:#ffffff;
+  color:#0a0d10;
+  border:1px solid rgba(10,13,16,.08);
+  box-shadow:0 14px 40px rgba(0,0,0,.16);
+}
+.card--light .sub{
+  color:#44505e;
+}
+.card--light ul{
+  margin-left:20px;
+}
+.btn.emerald{
+  background:linear-gradient(135deg,#0e3f3f,#0b2e2e);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.08);
+}
+.btn.emerald:hover{
+  filter:brightness(1.05);
+  transform:translateY(-1px);
+}
+.link-muted{
+  color:#768395;
+  text-decoration:underline;
+}
+.link-muted:hover{
+  color:#4b5663;
+}
+
+    
     :root{--emerald:#0e3f3f;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;--silver:#e6eaef;--white:#fff;--charcoal:#14171a}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,sans-serif}
@@ -89,15 +120,38 @@
       <a href="#apply" class="btn">Apply for Platinum</a>
     </div>
 
-    <!-- Real target for Apply buttons (keeps your style) -->
-    <div id="apply" class="card">
-      <h2>Apply to the Private Client Club</h2>
-      <p class="lock">Approvals are limited. Please complete the short form below.</p>
-      <!-- Replace with your Google Form URL -->
-      <iframe src="" width="100%" height="720" frameborder="0" marginheight="0" marginwidth="0"
-              style="border-radius:14px;border:1px solid rgba(230,234,239,.12);background:rgba(255,255,255,.02)"></iframe>
-      <p class="lock" style="margin-top:10px">Prefer email? <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a></p>
-    </div>
+ <!-- Sophisticated, networking-first Apply block -->
+<div id="apply" class="card card--light" style="margin-top:28px">
+  <h2 style="margin-top:0">Apply to the Private Client Club</h2>
+  <p class="sub" style="margin-top:6px">
+    Signature D Private Client Club is a curated executive network focused on access, originality, and results.
+    Admissions are selective to protect quality and ensure meaningful, high-value connections.
+  </p>
+
+  <ul>
+    <li><strong>Curated introductions</strong> to partners, brands, and investors aligned with your goals.</li>
+    <li><strong>Priority lane</strong> for creative, strategy, and deal support — discreet and immediate.</li>
+    <li><strong>Partner access</strong> across the Signature D ecosystem (Orlando anchors, hospitality, retail, media).</li>
+    <li><strong>Quarterly roundtable</strong> for private insights, benchmarks, and co-marketing opportunities.</li>
+  </ul>
+
+  <!-- Primary CTA: your form or scheduling link -->
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+    <!-- Replace the href with your real Google Form or Typeform link -->
+    <a class="btn emerald" href="" target="_blank" rel="noopener noreferrer" aria-label="Start your application to the Private Client Club">
+      Start Application
+    </a>
+    <!-- Optional direct email fallback -->
+    <a class="btn" href="mailto:narinedevirn@gmail.com?subject=Private%20Client%20Club%20Application" aria-label="Email Signature D to apply to the Private Client Club">
+      Email Us Instead
+    </a>
+  </div>
+
+  <div style="margin-top:14px">
+    <a class="link-muted" href="index.html">← Back to Home</a>
+  </div>
+</div>
+
 
     <div class="chatroom">
       <h2>🕯️ After Dark Lounge</h2>
