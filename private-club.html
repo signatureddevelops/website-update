@@ -22,9 +22,16 @@
 
   <style>
     :root{
-      --emerald:#0e3f3f;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;
-      --silver:#e6eaef;--white:#fff;--charcoal:#14171a
+      --emerald:#0e3f3f; --gold:#f5c046; --goldBright:#ffd978; --ink:#0a0d10;
+      --silver:#e6eaef; --white:#fff; --charcoal:#14171a;
+
+      /* refined silver ramp */
+      --silverSoft:#dfe4ea;
+      --silverHi:#f4f6f8;
+      --gunmetal:#9aa3ad;
+      --porcelain:#f7f8fa;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,sans-serif}
     a{color:inherit;text-decoration:none}
@@ -32,51 +39,113 @@
     .container{max-width:880px;margin:0 auto;padding:40px 24px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:5;background:rgba(10,13,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(230,234,239,.12)}
+    header{
+      position:sticky;top:0;z-index:5;
+      background:rgba(10,13,16,.7);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid rgba(230,234,239,.12)
+    }
     .headerInner{max-width:880px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:10px 24px}
-    .smallLink{padding:8px 12px;border-radius:12px;border:1px solid rgba(230,234,239,.14)}
+    .smallLink{
+      padding:8px 12px;border-radius:12px;border:1px solid rgba(230,234,239,.14)
+    }
 
     /* Typography + cards */
     h1,h2,h3{font-family:"Playfair Display",serif;margin:0 0 16px}
-    h1{font-size:40px;color:var(--gold)}
-    h2{font-size:28px;color:var(--silver)}
-    .card{border:1px solid rgba(230,234,239,.14);border-radius:20px;padding:28px;margin:20px 0;background:linear-gradient(145deg,var(--charcoal),rgba(10,13,16,.95));box-shadow:0 18px 40px rgba(0,0,0,.45)}
-    .price{font-size:22px;font-weight:700;color:var(--goldBright)}
+    h1{font-size:40px}
+    h2{font-size:28px}
+    .card{
+      border:1px solid rgba(230,234,239,.14);border-radius:20px;padding:28px;margin:20px 0;
+      background:linear-gradient(145deg,var(--charcoal),rgba(10,13,16,.95));
+      box-shadow:0 18px 40px rgba(0,0,0,.45)
+    }
+    .price{font-size:22px;font-weight:700}
     ul{margin:12px 0 0 20px}
     li{margin:8px 0}
-    footer{padding:24px;text-align:center;font-size:14px;color:var(--silver);opacity:.75;border-top:1px solid rgba(230,234,239,.12)}
-    .btn{display:inline-block;padding:12px 18px;margin-top:16px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;font-weight:600;transition:transform .15s ease, box-shadow .15s ease, background .15s ease}
+    footer{
+      padding:24px;text-align:center;font-size:14px;color:var(--silver);opacity:.75;
+      border-top:1px solid rgba(230,234,239,.12)
+    }
+    .btn{
+      display:inline-block;padding:12px 18px;margin-top:16px;border-radius:14px;
+      background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;
+      font-weight:600;transition:transform .15s ease, box-shadow .15s ease, background .15s ease
+    }
     .btn:hover{transform:translateY(-1px)}
     .lock{font-size:14px;opacity:.75;margin-top:8px}
 
     /* WHITE Apply card (corporate) */
     .card--light{
-      background:#ffffff;color:#0a0d10;border:1px solid rgba(10,13,16,.08);
+      background:var(--porcelain); /* slightly off-white for silver readability */
+      color:var(--silverSoft);
+      border:1px solid rgba(10,13,16,.06);
       box-shadow:0 14px 40px rgba(0,0,0,.16)
     }
-    .card--light .sub{color:#44505e}
+    .card--light .sub{color:#a3adb8}
     .card--light ul{margin-left:20px}
 
-    /* Emerald primary CTA (kept for brand harmony; overridden by .sleek if present) */
+    /* Emerald CTA */
     .btn.emerald{
-      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);color:#fff;border:1px solid rgba(255,255,255,.08)
+      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);color:var(--silverHi);
+      border:1px solid rgba(255,255,255,.08)
     }
     .btn.emerald:hover{filter:brightness(1.05);transform:translateY(-1px)}
-    .link-muted{color:#768395;text-decoration:underline}
-    .link-muted:hover{color:#4b5663}
+    .link-muted{color:var(--silverSoft);text-decoration:none;border-bottom:1px dotted rgba(223,228,234,.25)}
+    .link-muted:hover{color:var(--silverHi);border-bottom-color:rgba(244,246,248,.5)}
 
     /* Chatroom */
-    .chatroom{margin-top:40px;border-radius:20px;border:1px solid rgba(230,234,239,.12);background:linear-gradient(145deg,rgba(14,63,63,.35),rgba(10,13,16,.9));padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
-    .chatroom h2{font-size:24px;color:var(--gold);margin-bottom:12px}
+    .chatroom{
+      margin-top:40px;border-radius:20px;border:1px solid rgba(230,234,239,.12);
+      background:linear-gradient(145deg,rgba(14,63,63,.35),rgba(10,13,16,.9));
+      padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.4)
+    }
+    .chatroom h2{font-size:24px;margin-bottom:12px}
     .messages{height:300px;overflow-y:auto;padding:12px;border-radius:14px;background:rgba(255,255,255,.03);margin-bottom:12px}
     .msg{margin:6px 0;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.05)}
     .msg.me{background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;text-align:right}
     .chat-input{display:flex;gap:8px}
-    .chat-input input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);background:rgba(255,255,255,.08);color:var(--silver)}
-    .chat-input button{padding:12px 16px;border-radius:12px;background:var(--emerald);color:var(--white);border:none;font-weight:600;cursor:pointer}
+    .chat-input input{
+      flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);
+      background:rgba(255,255,255,.08);color:var(--silverHi)
+    }
+    .chat-input button{
+      padding:12px 16px;border-radius:12px;background:var(--emerald);color:var(--silverHi);
+      border:none;font-weight:600;cursor:pointer
+    }
     .chat-input button:hover{background:#0b2e2e}
 
-    /* --- Sleek AOL-silver corporate buttons (added) --- */
+    /* --- Classy "shining silver" text (no cartoon shine) --- */
+    body, p, li, .smallLink, .lock, .sub, .link-muted { color: var(--silverSoft); }
+    h1, h2, h3, .price{
+      background:linear-gradient(180deg,var(--silverHi),var(--silverSoft) 60%, #cbd2da);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow:0 1px 0 rgba(10,13,16,.35); /* subtle depth on dark bg */
+    }
+
+    /* --- Tiers Grid & Spacing --- */
+    .tiers-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      margin-top:12px;
+    }
+    .tier{
+      border:1px solid rgba(230,234,239,.14);
+      border-radius:16px;
+      padding:18px 18px 16px;
+      background:linear-gradient(145deg, rgba(20,23,26,.85), rgba(10,13,16,.95));
+    }
+    .tier h3{ margin-bottom:8px; }
+    .tier .price{ margin:6px 0 10px; }
+    .tier ul{ margin:8px 0 12px 18px; }
+    .tier .btn{ margin-top:6px; }
+
+    @media (min-width: 820px){
+      .tiers-grid{ grid-template-columns: repeat(3, 1fr); gap:20px; }
+      .tier{ padding:20px; }
+    }
+
+    /* Sleek AOL-silver buttons (from prior pass) */
     .btn.sleek{
       background:linear-gradient(135deg,#dcdfe3,#f4f5f7);
       color:#0a0d10;
@@ -91,7 +160,6 @@
       box-shadow:0 6px 14px rgba(0,0,0,.25);
       transform:translateY(-2px);
     }
-
     .btn.sleek-outline{
       background:transparent;
       color:#0a0d10;
@@ -99,7 +167,7 @@
       border-radius:50px;
       padding:0.9rem 1.8rem;
       letter-spacing:.5px;
-      color:#0a0d10;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
     }
     .btn.sleek-outline:hover{
       background:#f4f5f7;
@@ -108,18 +176,16 @@
       box-shadow:0 6px 14px rgba(0,0,0,.16);
     }
 
-    /* Accessibility helper used below */
+    /* Accessibility helper */
     .visually-hidden{
-      position:absolute!important;
-      height:1px;width:1px;
-      overflow:hidden;clip:rect(1px,1px,1px,1px);
-      white-space:nowrap;border:0;padding:0;margin:-1px;
+      position:absolute!important;height:1px;width:1px;overflow:hidden;
+      clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px;
     }
 
     /* Motion preference */
     @media (prefers-reduced-motion: reduce){
-      .btn:hover{transform:none}
-      .btn.sleek:hover,.btn.sleek-outline:hover{transform:none}
+      .btn:hover,.btn.sleek:hover,.btn.sleek-outline:hover{transform:none;box-shadow:none}
+      h1, h2, h3, .price { text-shadow: none; }
     }
   </style>
 </head>
@@ -137,42 +203,51 @@
     <h1>✨ Signature D Private Client Club — After Dark</h1>
     <p class="lock">Invitation-only access • A classy space to network, share, and connect</p>
 
+    <!-- Membership Tiers with clean spacing -->
     <section class="card" aria-labelledby="tiers">
       <h2 id="tiers">Membership Tiers</h2>
 
-      <h3>Silver Access</h3>
-      <div class="price">$3,500/month</div>
-      <ul>
-        <li>Priority WhatsApp/Signal support</li>
-        <li>2 cinematic reels + 5–7 posts / month</li>
-        <li>Monthly 90-min strategy call + performance report</li>
-        <li>Annual VIP shoot (half-day)</li>
-        <li>Signature D Roundtable invite</li>
-      </ul>
-      <a href="#apply" class="btn">Apply for Silver</a>
+      <div class="tiers-grid">
+        <div class="tier">
+          <h3>Silver Access</h3>
+          <div class="price">$3,500/month</div>
+          <ul>
+            <li>Priority WhatsApp/Signal support</li>
+            <li>2 cinematic reels + 5–7 posts / month</li>
+            <li>Monthly 90-min strategy call + performance report</li>
+            <li>Annual VIP shoot (half-day)</li>
+            <li>Signature D Roundtable invite</li>
+          </ul>
+          <a href="#apply" class="btn sleek">Apply for Silver</a>
+        </div>
 
-      <h3>Gold Access</h3>
-      <div class="price">$7,500/month</div>
-      <ul>
-        <li>All Silver benefits — doubled</li>
-        <li>Mid-month check-in call</li>
-        <li>Ad campaign management (excl. ad spend)</li>
-      </ul>
-      <a href="#apply" class="btn">Apply for Gold</a>
+        <div class="tier">
+          <h3>Gold Access</h3>
+          <div class="price">$7,500/month</div>
+          <ul>
+            <li>All Silver benefits — doubled</li>
+            <li>Mid-month check-in call</li>
+            <li>Ad campaign management (excl. ad spend)</li>
+          </ul>
+          <a href="#apply" class="btn sleek">Apply for Gold</a>
+        </div>
 
-      <h3>Platinum Access</h3>
-      <div class="price">$12,500+/month</div>
-      <ul>
-        <li>Dedicated Signature D team</li>
-        <li>6–8 reels + 15–20 posts / month</li>
-        <li>Weekly operational support</li>
-        <li>Quarterly on-site day</li>
-        <li>Empire growth roadmap</li>
-      </ul>
-      <a href="#apply" class="btn">Apply for Platinum</a>
+        <div class="tier">
+          <h3>Platinum Access</h3>
+          <div class="price">$12,500+/month</div>
+          <ul>
+            <li>Dedicated Signature D team</li>
+            <li>6–8 reels + 15–20 posts / month</li>
+            <li>Weekly operational support</li>
+            <li>Quarterly on-site day</li>
+            <li>Empire growth roadmap</li>
+          </ul>
+          <a href="#apply" class="btn sleek">Apply for Platinum</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Sophisticated, networking-first Apply block -->
+    <!-- Apply block -->
     <section id="apply" class="card card--light" aria-labelledby="applyTitle" style="margin-top:28px">
       <h2 id="applyTitle" style="margin-top:0">Apply to the Private Client Club</h2>
       <p class="sub" style="margin-top:6px">
