@@ -6,12 +6,18 @@
   <title>Signature D — We don’t chase attention — we own it.</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--emerald:#0e3f3f;--emeraldDeep:#092c2c;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;--silver:#e6eaef;--muted:#aeb7c2;--white:#fff}
+    :root{
+      --emerald:#0e3f3f; --emeraldDeep:#092c2c;
+      --gold:#f5c046; --goldBright:#ffd978;
+      --ink:#0a0d10; --silver:#e6eaef; --muted:#aeb7c2; --white:#fff
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1180px;margin:0 auto;padding:24px}
+
+    /* HEADER */
     header{position:sticky;top:0;z-index:60;background:rgba(10,13,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(230,234,239,.08)}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--emeraldDeep),var(--emerald));box-shadow:0 0 0 1px rgba(255,217,120,.25),0 18px 40px rgba(9,44,44,.45)}
@@ -21,6 +27,7 @@
     .btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.35)}
     .btn.gold{background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;border-color:rgba(0,0,0,.15)}
     .btn.silver{background:linear-gradient(135deg,#cfd7df,#aeb9c6);color:#0a0d10;border-color:rgba(0,0,0,.18)}
+    .btn.emerald{background:linear-gradient(135deg,var(--emerald),var(--emeraldDeep));color:#fff;border-color:rgba(255,255,255,.08)}
 
     /* HERO */
     .hero{position:relative;overflow:hidden}
@@ -56,8 +63,11 @@
     .cols-3{grid-template-columns:1fr}
     @media(min-width:980px){.cols-2{grid-template-columns:repeat(2,1fr)}.cols-3{grid-template-columns:repeat(3,1fr)}}
 
-    /* Package Cards */
+    /* Cards */
     .package{border:1px solid rgba(230,234,239,.12);border-radius:18px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));position:relative}
+    .card--light{background:#ffffff;color:#0a0d10;border:1px solid rgba(10,13,16,.08);box-shadow:0 14px 40px rgba(0,0,0,.16)}
+    .card--light .sub{color:#44505e}
+
     .package h4{margin:0 0 6px;font-family:"Playfair Display",serif;font-size:22px}
     .price{color:var(--gold);font-weight:700;margin-top:6px}
     ul{margin:10px 0 0 18px}
@@ -70,12 +80,14 @@
     .logoTag{height:38px;padding:10px 16px;border-radius:999px;border:1px solid rgba(230,234,239,.14);background:rgba(255,255,255,.02)}
 
     .ctaRow{display:grid;gap:16px}
-    @media(min-width:880px){.ctaRow{grid-template-columns:1.2fr .8fr}}
-    .form{display:flex;gap:10px;flex-wrap:wrap}
-    input[type="email"]{flex:1 1 260px;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);background:rgba(255,255,255,.06);color:var(--silver)}
+    @media(min-width:880px){.ctaRow{grid-template-columns:1.1fr .9fr}}
 
     footer{padding:40px 24px;border-top:1px solid rgba(230,234,239,.08)}
     .fine{opacity:.78}
+
+    /* small a11y polish */
+    .btn:focus{outline:2px solid var(--goldBright);outline-offset:2px}
+    @media (prefers-reduced-motion: reduce){.starfield{animation:none}.btn:hover{transform:none;box-shadow:none}}
   </style>
 </head>
 <body>
@@ -86,13 +98,12 @@
         <div class="logo" aria-hidden="true"></div>
         <h1>Signature D.</h1>
       </div>
-      <nav>
+      <nav aria-label="Primary">
         <a href="#method">Method</a>
         <a href="#packages">Packages</a>
-          <a href="private-club.html">Client Club</a>
+        <a href="#clubs">Clubs</a>
         <a href="#partners">Partners</a>
         <a href="#contact">Start</a>
-      
       </nav>
     </div>
   </header>
@@ -105,30 +116,31 @@
       <div class="kicker">DeVirn Signature House, Inc.</div>
       <h2>We don’t chase attention — we own it.</h2>
       <p>Strategy. Cinematic design. Precise execution. Outcomes that feel natural and inevitable.</p>
+
       <div class="cardWrap" style="margin-top:20px">
+        <!-- Confidence Card -->
         <div class="confidenceCard" id="confidenceCard">
           <div class="glow"></div>
           <div class="confidenceInner">
-            <div class="confidenceQuote" id="quote">Not forced. Not fabricated. Inevitable.</div>
+            <div class="confidenceQuote" id="quote" aria-live="polite">Not forced. Not fabricated. Inevitable.</div>
             <div class="confidenceMeta">
               <span class="chip">Confidence Card</span>
-              <a class="btn" id="shuffleBtn">Shuffle</a>
+              <button class="btn" id="shuffleBtn" type="button" aria-controls="quote">Shuffle</button>
             </div>
           </div>
         </div>
-        <div class="package" style="margin-top:28px;text-align:center">
-  <h4>⚡ Start in 60 Seconds</h4>
-  <p class="fine">Begin with a <strong>$1 brand audit</strong> in 24 hours, then a <strong>10-minute strategy call</strong> to map your next 30 days.</p>
-  
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:16px">
-    <!-- Replace href with your real links -->
-    <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank" rel="noopener"> $1 Brand Audit </a>
-    <a class="btn emerald" href="https://calendly.com/your-link/10min" target="_blank" rel="noopener"> Book 10-Min Call </a>
-  </div>
 
-  <p class="fine" style="margin-top:10px">Delivered fast. Confidential. No pressure.</p>
-</div>
-
+        <!-- Compact Start block -->
+        <div class="package" style="margin:28px auto;text-align:center;max-width:520px">
+          <h4 style="margin-bottom:6px">⚡ Start in 60 Seconds</h4>
+          <p class="fine" style="margin:0 0 12px">
+            $1 audit in 24h → 10-min call to map your 30-day plan.
+          </p>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank" rel="noopener"> $1 Brand Audit </a>
+            <a class="btn emerald" href="https://calendly.com/your-link/10min" target="_blank" rel="noopener"> 10-Min Call </a>
+          </div>
+          <p class="fine" style="margin-top:8px;font-size:13px">Fast • Confidential • No pressure</p>
         </div>
       </div>
     </div>
@@ -139,10 +151,9 @@
     <div class="container">
       <h3>Our Method — The Cohesive Cycle</h3>
       <p class="fine">Audits spark packages. Packages unlock access. Access attracts anchors and influencers. Anchors create gravity. Together, the cycle makes your brand inevitable.</p>
-      <div class="package" style="padding:0;overflow:hidden">
-        <!-- Replace the image src below with your hosted graphic (e.g., /images/signature-cycle.png) -->
-       <img src="signature-cycle.png" alt="Signature D Cohesive Cycle" width="1200" height="600" loading="lazy">
- </div>
+      <div class="package card--light" style="padding:0;overflow:hidden">
+        <img src="signature-cycle.png" alt="Signature D Cohesive Cycle" width="1200" height="600" loading="lazy" />
+      </div>
     </div>
   </section>
 
@@ -155,7 +166,7 @@
           <h4>Visibility <span class="fine">• ~2 weeks</span></h4>
           <div class="price">$2,500</div>
           <ul>
-            <li>15‑sec cinematic hero reel</li>
+            <li>15-sec cinematic hero reel</li>
             <li>5 branded social posts</li>
             <li>Profile/website refresh</li>
             <li>1:1 brand session</li>
@@ -166,10 +177,10 @@
           <h4>Engagement Accelerator <span class="fine">• 3–4 weeks</span></h4>
           <div class="price">$5,000 – $7,500</div>
           <ul>
-            <li>30‑day content calendar</li>
+            <li>30-day content calendar</li>
             <li>10 cinematic post designs</li>
-            <li>3 short‑form videos</li>
-            <li>Auto‑DM & booking setup + report</li>
+            <li>3 short-form videos</li>
+            <li>Auto-DM & booking setup + report</li>
           </ul>
           <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
         </div>
@@ -191,7 +202,7 @@
             <li>Full identity system (logo suite, type, palette)</li>
             <li>Cinematic reel library (5–10 films)</li>
             <li>Website or funnel build</li>
-            <li>Retargeting campaign + 90‑day blueprint</li>
+            <li>Retargeting campaign + 90-day blueprint</li>
           </ul>
           <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
         </div>
@@ -199,10 +210,10 @@
           <h4>Mogul Launch Kit <span class="fine">• 4–6 weeks</span></h4>
           <div class="price">$7,500 – $12,000</div>
           <ul>
-            <li>30‑sec cinematic launch film</li>
+            <li>30-sec cinematic launch film</li>
             <li>Landing page + funnel</li>
             <li>10 branded launch posts</li>
-            <li>3‑part email sequence</li>
+            <li>3-part email sequence</li>
           </ul>
           <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
         </div>
@@ -211,9 +222,9 @@
           <div class="price">$15,000+</div>
           <ul>
             <li>Script + storyboard</li>
-            <li>On‑location shoot</li>
+            <li>On-location shoot</li>
             <li>2–3 min cinematic brand film</li>
-            <li>30‑sec cutdowns for social/ads</li>
+            <li>30-sec cutdowns for social/ads</li>
           </ul>
           <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
         </div>
@@ -228,7 +239,7 @@
       <div class="grid cols-2" style="margin-top:12px">
         <div class="package">
           <h4>Private Client Club</h4>
-          <div class="price">$240/month • invite‑only</div>
+          <div class="price">$240/month • invite-only</div>
           <ul>
             <li>Immediate response (priority channel)</li>
             <li>Insider originality insights (monthly)</li>
@@ -236,8 +247,7 @@
             <li>Ongoing spotlight in Signature D media</li>
           </ul>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-           <a class="btn" href="private-club.html">Request Invitation</a>
-
+            <a class="btn" href="private-club.html">Request Invitation</a>
           </div>
         </div>
         <div class="package">
@@ -245,13 +255,12 @@
           <div class="price">$500–$2,000/month • approval required</div>
           <ul>
             <li>2–5 guaranteed brand connections/month</li>
-            <li>Paid campaign placements & cross‑promotions</li>
+            <li>Paid campaign placements & cross-promotions</li>
             <li>Spotlight in decks & reels to brands</li>
             <li>Concierge support for deals</li>
           </ul>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn" href="influencer-club.html">Apply</a>
-
           </div>
         </div>
       </div>
@@ -271,7 +280,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS / SHOWCASE -->
+  <!-- SHOWCASE -->
   <section id="work" class="section">
     <div class="container">
       <h3>Selected Style</h3>
@@ -289,17 +298,28 @@
     <div class="container">
       <h3>Start in 60 seconds</h3>
       <div class="ctaRow">
+        <!-- Left: $1 audit (kept gold) -->
         <div class="package">
           <h4>$1 Mini Audit</h4>
           <p class="fine">One page. Three fixes. Delivered in 24 hours.</p>
-          <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank">Pay $1 via Cash App</a>
+          <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank" rel="noopener">Pay $1 via Cash App</a>
           <p class="fine" style="margin-top:8px">After payment, email your brand + link to <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a>.</p>
         </div>
-        <div class="package">
-          <h4>Join the List</h4>
-          <p class="fine">Be first to know when new cohort seats open.</p>
-          <!-- Replace this iframe src with your Google Form embed URL -->
-          <iframe src="" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;border:1px solid rgba(230,234,239,.12);background:rgba(255,255,255,.02)"></iframe>
+
+        <!-- Right: Join the list (white, corporate) -->
+        <div class="package card--light">
+          <h4 style="color:#0a0d10;margin-bottom:6px">📩 Join the List</h4>
+          <p class="sub" style="margin:0 0 12px">
+            Be first to know when new cohort seats open.
+          </p>
+          <!-- Simple in-page email capture: mailto -->
+          <form action="mailto:narinedevirn@gmail.com" method="post" enctype="text/plain" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <input type="email" name="email" placeholder="Your email"
+                   required
+                   style="flex:1 1 220px;padding:10px 12px;border-radius:10px;border:1px solid rgba(10,13,16,.12)">
+            <button type="submit" class="btn emerald">Join</button>
+          </form>
+          <p class="sub" style="margin-top:8px;font-size:13px">Direct sign-up • No spam</p>
         </div>
       </div>
     </div>
@@ -314,24 +334,34 @@
   </footer>
 
   <script>
-    // Confidence Card interactions
-    const quotes=[
-      "We don’t chase attention — we own it.",
-      "Not forced. Not fabricated. Inevitable.",
-      "Luxury isn’t loud. It’s undeniable.",
-      "Precision over noise. Presence over hype.",
-      "Make it timeless. Make it inevitable."
-    ];
-    const card=document.getElementById('confidenceCard');
-    const quoteEl=document.getElementById('quote');
-    const shuffle=()=>{const next=quotes[Math.floor(Math.random()*quotes.length)];quoteEl.style.opacity=0;setTimeout(()=>{quoteEl.textContent=next;quoteEl.style.opacity=1;},160)};
-    document.getElementById('shuffleBtn').addEventListener('click',shuffle);
-    card.addEventListener('mousemove',(e)=>{
-      const r=card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
-      card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
-    });
-    document.getElementById('yr').textContent=new Date().getFullYear();
+    // Confidence Card interactions (safe-guarded)
+    (function(){
+      const quotes=[
+        "We don’t chase attention — we own it.",
+        "Not forced. Not fabricated. Inevitable.",
+        "Luxury isn’t loud. It’s undeniable.",
+        "Precision over noise. Presence over hype.",
+        "Make it timeless. Make it inevitable."
+      ];
+      const card=document.getElementById('confidenceCard');
+      const quoteEl=document.getElementById('quote');
+      const shuffleBtn=document.getElementById('shuffleBtn');
+      if(shuffleBtn && quoteEl){
+        const shuffle=()=>{const next=quotes[Math.floor(Math.random()*quotes.length)];
+          quoteEl.style.opacity=0;
+          setTimeout(()=>{quoteEl.textContent=next;quoteEl.style.opacity=1;},160);
+        };
+        shuffleBtn.addEventListener('click',shuffle);
+      }
+      if(card){
+        card.addEventListener('mousemove',(e)=>{
+          const r=card.getBoundingClientRect();
+          card.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
+          card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
+        }, {passive:true});
+      }
+      const yr=document.getElementById('yr'); if(yr){ yr.textContent=new Date().getFullYear(); }
+    })();
   </script>
 </body>
 </html>
