@@ -25,15 +25,13 @@
       --emerald:#0e3f3f; --gold:#f5c046; --goldBright:#ffd978; --ink:#0a0d10;
       --silver:#e6eaef; --white:#fff; --charcoal:#14171a;
 
-      /* refined silver ramp */
       --silverSoft:#dfe4ea;
       --silverHi:#f4f6f8;
-      --gunmetal:#9aa3ad;
       --porcelain:#f7f8fa;
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,sans-serif}
+    html,body{margin:0;padding:0;background:var(--ink);color:#f8f9fa;font-family:Inter,system-ui,sans-serif}
     a{color:inherit;text-decoration:none}
 
     .container{max-width:880px;margin:0 auto;padding:40px 24px}
@@ -54,16 +52,24 @@
     h1,h2,h3{font-family:"Playfair Display",serif;margin:0 0 16px}
     h1{font-size:40px}
     h2{font-size:28px}
+
+    /* Brand: gold headings for max readability & identity */
+    h1,h2,h3,.price{
+      background:linear-gradient(135deg,var(--gold),var(--goldBright));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-shadow:0 1px 1px rgba(0,0,0,.35);
+    }
+
     .card{
       border:1px solid rgba(230,234,239,.14);border-radius:20px;padding:28px;margin:20px 0;
       background:linear-gradient(145deg,var(--charcoal),rgba(10,13,16,.95));
       box-shadow:0 18px 40px rgba(0,0,0,.45)
     }
     .price{font-size:22px;font-weight:700}
-    ul{margin:12px 0 0 20px}
+    ul{margin:12px 0 0 20px;line-height:1.6}
     li{margin:8px 0}
     footer{
-      padding:24px;text-align:center;font-size:14px;color:var(--silver);opacity:.75;
+      padding:24px;text-align:center;font-size:14px;color:#d7dde5;opacity:.8;
       border-top:1px solid rgba(230,234,239,.12)
     }
     .btn{
@@ -72,26 +78,25 @@
       font-weight:600;transition:transform .15s ease, box-shadow .15s ease, background .15s ease
     }
     .btn:hover{transform:translateY(-1px)}
-    .lock{font-size:14px;opacity:.75;margin-top:8px}
+    .lock{font-size:14px;opacity:.85;margin-top:8px;color:#eef1f5}
 
-    /* WHITE Apply card (corporate) */
+    /* Links */
+    .link-muted{color:#e9edf2;text-decoration:none;border-bottom:1px dotted rgba(233,237,242,.35)}
+    .link-muted:hover{color:#ffffff;border-bottom-color:rgba(255,255,255,.6)}
+
+    /* WHITE Apply card (readable) */
     .card--light{
-      background:var(--porcelain); /* slightly off-white for silver readability */
-      color:var(--silverSoft);
+      background:#ffffff; color:#0a0d10;
       border:1px solid rgba(10,13,16,.06);
       box-shadow:0 14px 40px rgba(0,0,0,.16)
     }
-    .card--light .sub{color:#a3adb8}
+    .card--light .sub{color:#444}
     .card--light ul{margin-left:20px}
-
-    /* Emerald CTA */
-    .btn.emerald{
-      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);color:var(--silverHi);
-      border:1px solid rgba(255,255,255,.08)
+    .card--light h2,.card--light h3,.card--light .price{
+      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-shadow:none;
     }
-    .btn.emerald:hover{filter:brightness(1.05);transform:translateY(-1px)}
-    .link-muted{color:var(--silverSoft);text-decoration:none;border-bottom:1px dotted rgba(223,228,234,.25)}
-    .link-muted:hover{color:var(--silverHi);border-bottom-color:rgba(244,246,248,.5)}
 
     /* Chatroom */
     .chatroom{
@@ -106,67 +111,56 @@
     .chat-input{display:flex;gap:8px}
     .chat-input input{
       flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);
-      background:rgba(255,255,255,.08);color:var(--silverHi)
+      background:rgba(255,255,255,.08);color:#ffffff
     }
     .chat-input button{
-      padding:12px 16px;border-radius:12px;background:var(--emerald);color:var(--silverHi);
+      padding:12px 16px;border-radius:12px;background:var(--emerald);color:#ffffff;
       border:none;font-weight:600;cursor:pointer
     }
     .chat-input button:hover{background:#0b2e2e}
-
-    /* --- Classy "shining silver" text (no cartoon shine) --- */
-    body, p, li, .smallLink, .lock, .sub, .link-muted { color: var(--silverSoft); }
-    h1, h2, h3, .price{
-      background:linear-gradient(180deg,var(--silverHi),var(--silverSoft) 60%, #cbd2da);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      text-shadow:0 1px 0 rgba(10,13,16,.35); /* subtle depth on dark bg */
-    }
 
     /* --- Tiers Grid & Spacing --- */
     .tiers-grid{
       display:grid;
       grid-template-columns:1fr;
-      gap:18px;
-      margin-top:12px;
+      gap:20px;
+      margin-top:20px;
     }
     .tier{
       border:1px solid rgba(230,234,239,.14);
       border-radius:16px;
-      padding:18px 18px 16px;
+      padding:24px;
       background:linear-gradient(145deg, rgba(20,23,26,.85), rgba(10,13,16,.95));
+      line-height:1.6;
     }
     .tier h3{ margin-bottom:8px; }
-    .tier .price{ margin:6px 0 10px; }
-    .tier ul{ margin:8px 0 12px 18px; }
-    .tier .btn{ margin-top:6px; }
+    .tier .price{ margin:6px 0 12px; }
+    .tier ul{ margin:8px 0 14px 18px; }
+    .tier .btn{ margin-top:8px; }
 
     @media (min-width: 820px){
-      .tiers-grid{ grid-template-columns: repeat(3, 1fr); gap:20px; }
-      .tier{ padding:20px; }
+      .tiers-grid{ grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* Sleek AOL-silver buttons (from prior pass) */
-    .btn.sleek{
-      background:linear-gradient(135deg,#dcdfe3,#f4f5f7);
-      color:#0a0d10;
-      border:1px solid rgba(10,13,16,.08);
-      border-radius:50px;
-      padding:0.9rem 1.8rem;
-      letter-spacing:.5px;
-      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    /* Buttons */
+    .btn.emerald{
+      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,.08)
     }
-    .btn.sleek:hover{
-      background:linear-gradient(135deg,#c9ccd1,#e9ebef);
-      box-shadow:0 6px 14px rgba(0,0,0,.25);
+    .btn.emerald:hover{
+      filter:brightness(1.1);
       transform:translateY(-2px);
+      box-shadow:0 6px 14px rgba(0,0,0,.25);
     }
+
     .btn.sleek-outline{
       background:transparent;
       color:#0a0d10;
       border:2px solid #cfd3d9;
       border-radius:50px;
       padding:0.9rem 1.8rem;
-      letter-spacing:.5px;
+      letter-spacing:.3px;
       transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
     }
     .btn.sleek-outline:hover{
@@ -184,8 +178,8 @@
 
     /* Motion preference */
     @media (prefers-reduced-motion: reduce){
-      .btn:hover,.btn.sleek:hover,.btn.sleek-outline:hover{transform:none;box-shadow:none}
-      h1, h2, h3, .price { text-shadow: none; }
+      .btn:hover{transform:none;box-shadow:none}
+      h1,h2,h3,.price{text-shadow:none}
     }
   </style>
 </head>
@@ -218,7 +212,7 @@
             <li>Annual VIP shoot (half-day)</li>
             <li>Signature D Roundtable invite</li>
           </ul>
-          <a href="#apply" class="btn sleek">Apply for Silver</a>
+          <a href="#apply" class="btn emerald">Apply for Silver</a>
         </div>
 
         <div class="tier">
@@ -229,7 +223,7 @@
             <li>Mid-month check-in call</li>
             <li>Ad campaign management (excl. ad spend)</li>
           </ul>
-          <a href="#apply" class="btn sleek">Apply for Gold</a>
+          <a href="#apply" class="btn emerald">Apply for Gold</a>
         </div>
 
         <div class="tier">
@@ -242,7 +236,7 @@
             <li>Quarterly on-site day</li>
             <li>Empire growth roadmap</li>
           </ul>
-          <a href="#apply" class="btn sleek">Apply for Platinum</a>
+          <a href="#apply" class="btn emerald">Apply for Platinum</a>
         </div>
       </div>
     </section>
@@ -264,7 +258,7 @@
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
         <!-- Replace with your real form link -->
-        <a class="btn sleek" href="https://forms.gle/your-form-id" target="_blank" rel="noopener noreferrer"
+        <a class="btn emerald" href="https://forms.gle/your-form-id" target="_blank" rel="noopener noreferrer"
            aria-label="Start your application to the Private Client Club">
           Start Application
         </a>
