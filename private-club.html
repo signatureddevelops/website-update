@@ -3,51 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Signature D — Private Club After Dark</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Light, corporate apply card */
-.card--light{
-  background:#ffffff;
-  color:#0a0d10;
-  border:1px solid rgba(10,13,16,.08);
-  box-shadow:0 14px 40px rgba(0,0,0,.16);
-}
-.card--light .sub{
-  color:#44505e;
-}
-.card--light ul{
-  margin-left:20px;
-}
-.btn.emerald{
-  background:linear-gradient(135deg,#0e3f3f,#0b2e2e);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.08);
-}
-.btn.emerald:hover{
-  filter:brightness(1.05);
-  transform:translateY(-1px);
-}
-.link-muted{
-  color:#768395;
-  text-decoration:underline;
-}
-.link-muted:hover{
-  color:#4b5663;
-}
+  <title>Signature D — Private Client Club — After Dark</title>
+  <meta name="description" content="Invitation-only executive network by Signature D: curated introductions, priority creative support, and discreet concierge access." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="canonical" href="https://<your-username>.github.io/<your-repo>/private-club.html" />
 
-    
-    :root{--emerald:#0e3f3f;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;--silver:#e6eaef;--white:#fff;--charcoal:#14171a}
+  <!-- Performance: preload fonts pipeline -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Social share -->
+  <meta property="og:title" content="Signature D — Private Client Club" />
+  <meta property="og:description" content="A curated executive network for access, originality, and results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://<your-domain>/images/og-cover.jpg" />
+  <meta name="theme-color" content="#0e3f3f" />
+
+  <style>
+    :root{
+      --emerald:#0e3f3f;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;
+      --silver:#e6eaef;--white:#fff;--charcoal:#14171a
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,sans-serif}
     a{color:inherit;text-decoration:none}
+
     .container{max-width:880px;margin:0 auto;padding:40px 24px}
 
-    /* minimal header to keep integrity */
+    /* Header */
     header{position:sticky;top:0;z-index:5;background:rgba(10,13,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(230,234,239,.12)}
     .headerInner{max-width:880px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:10px 24px}
     .smallLink{padding:8px 12px;border-radius:12px;border:1px solid rgba(230,234,239,.14)}
 
+    /* Typography + cards */
     h1,h2,h3{font-family:"Playfair Display",serif;margin:0 0 16px}
     h1{font-size:40px;color:var(--gold)}
     h2{font-size:28px;color:var(--silver)}
@@ -56,8 +45,25 @@
     ul{margin:12px 0 0 20px}
     li{margin:8px 0}
     footer{padding:24px;text-align:center;font-size:14px;color:var(--silver);opacity:.75;border-top:1px solid rgba(230,234,239,.12)}
-    .btn{display:inline-block;padding:12px 18px;margin-top:16px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;font-weight:600}
+    .btn{display:inline-block;padding:12px 18px;margin-top:16px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;font-weight:600;transition:transform .15s ease}
+    .btn:hover{transform:translateY(-1px)}
     .lock{font-size:14px;opacity:.75;margin-top:8px}
+
+    /* WHITE Apply card (corporate) */
+    .card--light{
+      background:#ffffff;color:#0a0d10;border:1px solid rgba(10,13,16,.08);
+      box-shadow:0 14px 40px rgba(0,0,0,.16)
+    }
+    .card--light .sub{color:#44505e}
+    .card--light ul{margin-left:20px}
+
+    /* Emerald primary CTA */
+    .btn.emerald{
+      background:linear-gradient(135deg,#0e3f3f,#0b2e2e);color:#fff;border:1px solid rgba(255,255,255,.08)
+    }
+    .btn.emerald:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .link-muted{color:#768395;text-decoration:underline}
+    .link-muted:hover{color:#4b5663}
 
     /* Chatroom */
     .chatroom{margin-top:40px;border-radius:20px;border:1px solid rgba(230,234,239,.12);background:linear-gradient(145deg,rgba(14,63,63,.35),rgba(10,13,16,.9));padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
@@ -69,10 +75,14 @@
     .chat-input input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);background:rgba(255,255,255,.08);color:var(--silver)}
     .chat-input button{padding:12px 16px;border-radius:12px;background:var(--emerald);color:var(--white);border:none;font-weight:600;cursor:pointer}
     .chat-input button:hover{background:#0b2e2e}
+
+    /* Motion preference */
+    @media (prefers-reduced-motion: reduce){
+      .btn:hover{transform:none}
+    }
   </style>
 </head>
 <body>
-  <!-- minimal header only for navigation -->
   <header>
     <div class="headerInner">
       <div>Signature D — Private Client Club</div>
@@ -82,12 +92,13 @@
     </div>
   </header>
 
-  <div class="container">
+  <main class="container" id="main">
     <h1>✨ Signature D Private Client Club — After Dark</h1>
     <p class="lock">Invitation-only access • A classy space to network, share, and connect</p>
 
-    <div class="card">
-      <h2>Membership Tiers</h2>
+    <section class="card" aria-labelledby="tiers">
+      <h2 id="tiers">Membership Tiers</h2>
+
       <h3>Silver Access</h3>
       <div class="price">$3,500/month</div>
       <ul>
@@ -118,70 +129,75 @@
         <li>Empire growth roadmap</li>
       </ul>
       <a href="#apply" class="btn">Apply for Platinum</a>
-    </div>
+    </section>
 
- <!-- Sophisticated, networking-first Apply block -->
-<div id="apply" class="card card--light" style="margin-top:28px">
-  <h2 style="margin-top:0">Apply to the Private Client Club</h2>
-  <p class="sub" style="margin-top:6px">
-    Signature D Private Client Club is a curated executive network focused on access, originality, and results.
-    Admissions are selective to protect quality and ensure meaningful, high-value connections.
-  </p>
+    <!-- Sophisticated, networking-first Apply block -->
+    <section id="apply" class="card card--light" aria-labelledby="applyTitle" style="margin-top:28px">
+      <h2 id="applyTitle" style="margin-top:0">Apply to the Private Client Club</h2>
+      <p class="sub" style="margin-top:6px">
+        Signature D Private Client Club is a curated executive network focused on access, originality, and results.
+        Admissions are selective to protect quality and ensure meaningful, high-value connections.
+      </p>
 
-  <ul>
-    <li><strong>Curated introductions</strong> to partners, brands, and investors aligned with your goals.</li>
-    <li><strong>Priority lane</strong> for creative, strategy, and deal support — discreet and immediate.</li>
-    <li><strong>Partner access</strong> across the Signature D ecosystem (Orlando anchors, hospitality, retail, media).</li>
-    <li><strong>Quarterly roundtable</strong> for private insights, benchmarks, and co-marketing opportunities.</li>
-  </ul>
+      <ul>
+        <li><strong>Curated introductions</strong> to partners, brands, and investors aligned with your goals.</li>
+        <li><strong>Priority lane</strong> for creative, strategy, and deal support — discreet and immediate.</li>
+        <li><strong>Partner access</strong> across the Signature D ecosystem (Orlando anchors, hospitality, retail, media).</li>
+        <li><strong>Quarterly roundtable</strong> for private insights, benchmarks, and co-marketing opportunities.</li>
+      </ul>
 
-  <!-- Primary CTA: your form or scheduling link -->
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
-    <!-- Replace the href with your real Google Form or Typeform link -->
-    <a class="btn emerald" href="" target="_blank" rel="noopener noreferrer" aria-label="Start your application to the Private Client Club">
-      Start Application
-    </a>
-    <!-- Optional direct email fallback -->
-    <a class="btn" href="mailto:narinedevirn@gmail.com?subject=Private%20Client%20Club%20Application" aria-label="Email Signature D to apply to the Private Client Club">
-      Email Us Instead
-    </a>
-  </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+        <!-- Replace with your real form link -->
+        <a class="btn emerald" href="https://forms.gle/your-form-id" target="_blank" rel="noopener noreferrer"
+           aria-label="Start your application to the Private Client Club">
+          Start Application
+        </a>
+        <a class="btn" href="mailto:narinedevirn@gmail.com?subject=Private%20Client%20Club%20Application"
+           aria-label="Email Signature D to apply to the Private Client Club">
+          Email Us Instead
+        </a>
+      </div>
 
-  <div style="margin-top:14px">
-    <a class="link-muted" href="index.html">← Back to Home</a>
-  </div>
-</div>
+      <div style="margin-top:14px">
+        <a class="link-muted" href="index.html">← Back to Home</a>
+      </div>
+    </section>
 
-
-    <div class="chatroom">
-      <h2>🕯️ After Dark Lounge</h2>
-      <div class="messages" id="messages">
+    <!-- After Dark Lounge (local-only demo chat) -->
+    <section class="chatroom" aria-labelledby="loungeTitle">
+      <h2 id="loungeTitle">🕯️ After Dark Lounge</h2>
+      <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text">
         <div class="msg">Welcome to the lounge — share freely, stay classy ✨</div>
       </div>
       <div class="chat-input">
-        <input type="text" id="chatInput" placeholder="Type your message..." />
-        <button onclick="sendMsg()">Send</button>
+        <label class="visually-hidden" for="chatInput">Type your message</label>
+        <input id="chatInput" type="text" placeholder="Type your message..." />
+        <button type="button" onclick="sendMsg()">Send</button>
       </div>
-    </div>
-  </div>
+      <p class="lock" style="margin-top:8px">Note: This is a demo UI only. For real-time chat, connect a backend later.</p>
+    </section>
+  </main>
 
   <footer>
     © <span id="yr"></span> DeVirn Signature House, Inc. • Private Access
   </footer>
 
   <script>
+    // Year
     document.getElementById('yr').textContent=new Date().getFullYear();
 
+    // Simple local chat demo (no backend)
     function sendMsg(){
       const input=document.getElementById('chatInput');
       const val=input.value.trim();
       if(!val) return;
+      const wrap=document.getElementById('messages');
       const msg=document.createElement('div');
       msg.className='msg me';
       msg.textContent=val;
-      document.getElementById('messages').appendChild(msg);
+      wrap.appendChild(msg);
       input.value='';
-      document.getElementById('messages').scrollTop=document.getElementById('messages').scrollHeight;
+      wrap.scrollTop=wrap.scrollHeight;
     }
   </script>
 </body>
