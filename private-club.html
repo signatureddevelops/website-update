@@ -21,6 +21,28 @@
   <meta name="theme-color" content="#0e3f3f" />
 
   <style>
+/* === Override: Gold -> Silver for headings & prices on dark cards === */
+h1, h2, h3, .price {
+  background: linear-gradient(135deg, #f4f6f8, #dfe4ea 65%, #c8d0d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 1px rgba(0,0,0,.35);
+}
+
+/* Keep headings readable on the light card:
+   Silver-on-white is too low contrast, so use elegant charcoal there. */
+.card--light h2,
+.card--light h3,
+.card--light .price {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #0f141a;           /* deep charcoal */
+  text-shadow: none;
+}
+
+    
     :root{
       --emerald:#0e3f3f; --gold:#f5c046; --goldBright:#ffd978; --ink:#0a0d10;
       --silver:#e6eaef; --white:#fff; --charcoal:#14171a;
