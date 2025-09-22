@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signature D — We don’t chase attention — we own it.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--emerald:#0e3f3f;--emeraldDeep:#092c2c;--gold:#f5c046;--goldBright:#ffd978;--ink:#0a0d10;--silver:#e6eaef;--muted:#aeb7c2;--white:#fff}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--ink);color:var(--silver);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1180px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:60;background:rgba(10,13,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(230,234,239,.08)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--emeraldDeep),var(--emerald));box-shadow:0 0 0 1px rgba(255,217,120,.25),0 18px 40px rgba(9,44,44,.45)}
+    h1{font-family:"Playfair Display",serif;font-size:22px;margin:0}
+    nav{display:flex;gap:18px;align-items:center}
+    .btn{display:inline-block;padding:12px 18px;border-radius:14px;border:1px solid rgba(230,234,239,.14);transition:transform .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.35)}
+    .btn.gold{background:linear-gradient(135deg,var(--gold),var(--goldBright));color:#181a1e;border-color:rgba(0,0,0,.15)}
+    .btn.silver{background:linear-gradient(135deg,#cfd7df,#aeb9c6);color:#0a0d10;border-color:rgba(0,0,0,.18)}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .heroBg{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 70% -10%, rgba(14,63,63,.45), transparent),
+      radial-gradient(900px 500px at -10% 20%, rgba(9,44,44,.6), transparent),
+      linear-gradient(180deg, rgba(10,13,16,1) 0%, rgba(10,13,16,0.4) 60%, rgba(10,13,16,1) 100%)}
+    .starfield{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#ffffff 1px, rgba(255,255,255,0) 2px);background-size:3px 3px;opacity:.10;animation:twinkle 7s linear infinite}
+    @keyframes twinkle{0%{opacity:.06}50%{opacity:.12}100%{opacity:.06}}
+    .heroInner{position:relative;padding:96px 24px 60px}
+    .kicker{letter-spacing:.22em;text-transform:uppercase;color:#cfe1de;font-size:12px;margin-bottom:10px}
+    .hero h2{font-family:"Playfair Display",serif;font-size:46px;margin:0 0 10px}
+    .hero p{max-width:820px;margin:0 0 18px;opacity:.92}
+
+    /* Confidence Card */
+    .cardWrap{display:grid;gap:18px;grid-template-columns:1fr;}
+    @media(min-width:980px){.cardWrap{grid-template-columns:1.4fr .6fr}}
+    .confidenceCard{min-height:240px;border-radius:20px;position:relative;overflow:hidden;border:1px solid rgba(230,234,239,.12);background:linear-gradient(135deg, rgba(207,215,223,.12), rgba(230,234,239,.03));box-shadow:0 16px 46px rgba(0,0,0,.45)}
+    .confidenceCard .glow{position:absolute;inset:-40%;background:radial-gradient(circle at var(--mx,60%) var(--my,40%), rgba(255,217,120,.25), transparent 40%);filter:blur(30px);opacity:.35;transition:opacity .2s ease}
+    .confidenceCard:hover .glow{opacity:.6}
+    .confidenceInner{position:relative;padding:26px;display:flex;flex-direction:column;justify-content:space-between;height:100%}
+    .confidenceQuote{font-family:"Playfair Display",serif;font-size:28px;line-height:1.25}
+    .confidenceMeta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(230,234,239,.14);background:rgba(255,217,120,.12);color:var(--gold)}
+
+    /* Sections */
+    .section{padding:56px 24px;border-top:1px solid rgba(230,234,239,.08)}
+    .section h3{font-family:"Playfair Display",serif;font-size:32px;margin:0 0 14px}
+
+    /* Grid */
+    .grid{display:grid;gap:16px}
+    .cols-2{grid-template-columns:1fr}
+    .cols-3{grid-template-columns:1fr}
+    @media(min-width:980px){.cols-2{grid-template-columns:repeat(2,1fr)}.cols-3{grid-template-columns:repeat(3,1fr)}}
+
+    /* Package Cards */
+    .package{border:1px solid rgba(230,234,239,.12);border-radius:18px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));position:relative}
+    .package h4{margin:0 0 6px;font-family:"Playfair Display",serif;font-size:22px}
+    .price{color:var(--gold);font-weight:700;margin-top:6px}
+    ul{margin:10px 0 0 18px}
+    li{margin:6px 0}
+
+    .showcase{display:grid;gap:10px;grid-template-columns:repeat(3,1fr)}
+    .shot{aspect-ratio:16/10;border-radius:14px;border:1px solid rgba(230,234,239,.12);background:linear-gradient(135deg,rgba(14,63,63,.3),rgba(230,234,239,.06));display:flex;align-items:center;justify-content:center;color:#cfe1de}
+
+    .logos{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .logoTag{height:38px;padding:10px 16px;border-radius:999px;border:1px solid rgba(230,234,239,.14);background:rgba(255,255,255,.02)}
+
+    .ctaRow{display:grid;gap:16px}
+    @media(min-width:880px){.ctaRow{grid-template-columns:1.2fr .8fr}}
+    .form{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="email"]{flex:1 1 260px;padding:12px 14px;border-radius:12px;border:1px solid rgba(230,234,239,.18);background:rgba(255,255,255,.06);color:var(--silver)}
+
+    footer{padding:40px 24px;border-top:1px solid rgba(230,234,239,.08)}
+    .fine{opacity:.78}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Signature D.</h1>
+      </div>
+      <nav>
+        <a href="#method">Method</a>
+        <a href="#packages">Packages</a>
+        <a href="#clubs">Clubs</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Start</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="heroBg"></div>
+    <div class="starfield"></div>
+    <div class="heroInner container">
+      <div class="kicker">DeVirn Signature House, Inc.</div>
+      <h2>We don’t chase attention — we own it.</h2>
+      <p>Strategy. Cinematic design. Precise execution. Outcomes that feel natural and inevitable.</p>
+      <div class="cardWrap" style="margin-top:20px">
+        <div class="confidenceCard" id="confidenceCard">
+          <div class="glow"></div>
+          <div class="confidenceInner">
+            <div class="confidenceQuote" id="quote">Not forced. Not fabricated. Inevitable.</div>
+            <div class="confidenceMeta">
+              <span class="chip">Confidence Card</span>
+              <a class="btn" id="shuffleBtn">Shuffle</a>
+            </div>
+          </div>
+        </div>
+        <div class="package">
+          <h4>Start in 60 seconds</h4>
+          <p class="fine">Begin with a $1 audit in 24 hours, then a 10‑minute call to map your 30‑day plan.</p>
+          <div class="" style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank" rel="noopener">$1 Mini Audit</a>
+            <a class="btn silver" href="https://calendly.com/your-link/10min" target="_blank" rel="noopener">Book 10‑min Call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD / FLYWHEEL -->
+  <section id="method" class="section">
+    <div class="container">
+      <h3>Our Method — The Cohesive Cycle</h3>
+      <p class="fine">Audits spark packages. Packages unlock access. Access attracts anchors and influencers. Anchors create gravity. Together, the cycle makes your brand inevitable.</p>
+      <div class="package" style="padding:0;overflow:hidden">
+        <!-- Replace the image src below with your hosted graphic (e.g., /images/signature-cycle.png) -->
+        <img src="https://raw.githubusercontent.com/placeholder/signature-cycle/main/cycle.png" alt="Signature D Cohesive Cycle" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="section">
+    <div class="container">
+      <h3>Packages</h3>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="package">
+          <h4>Visibility <span class="fine">• ~2 weeks</span></h4>
+          <div class="price">$2,500</div>
+          <ul>
+            <li>15‑sec cinematic hero reel</li>
+            <li>5 branded social posts</li>
+            <li>Profile/website refresh</li>
+            <li>1:1 brand session</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+        <div class="package">
+          <h4>Engagement Accelerator <span class="fine">• 3–4 weeks</span></h4>
+          <div class="price">$5,000 – $7,500</div>
+          <ul>
+            <li>30‑day content calendar</li>
+            <li>10 cinematic post designs</li>
+            <li>3 short‑form videos</li>
+            <li>Auto‑DM & booking setup + report</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+        <div class="package">
+          <h4>Conversion Builder <span class="fine">• 4–6 weeks</span></h4>
+          <div class="price">Starting at $10,000</div>
+          <ul>
+            <li>Luxury landing page / site optimization</li>
+            <li>Booking automation + reminders</li>
+            <li>3 testimonial reels</li>
+            <li>Ad creative bundle</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+        <div class="package">
+          <h4>Empire Package <span class="fine">• 8–12 weeks</span></h4>
+          <div class="price">$20,000 – $25,000</div>
+          <ul>
+            <li>Full identity system (logo suite, type, palette)</li>
+            <li>Cinematic reel library (5–10 films)</li>
+            <li>Website or funnel build</li>
+            <li>Retargeting campaign + 90‑day blueprint</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+        <div class="package">
+          <h4>Mogul Launch Kit <span class="fine">• 4–6 weeks</span></h4>
+          <div class="price">$7,500 – $12,000</div>
+          <ul>
+            <li>30‑sec cinematic launch film</li>
+            <li>Landing page + funnel</li>
+            <li>10 branded launch posts</li>
+            <li>3‑part email sequence</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+        <div class="package">
+          <h4>Legacy Brand Film <span class="fine">• 6–8 weeks</span></h4>
+          <div class="price">$15,000+</div>
+          <ul>
+            <li>Script + storyboard</li>
+            <li>On‑location shoot</li>
+            <li>2–3 min cinematic brand film</li>
+            <li>30‑sec cutdowns for social/ads</li>
+          </ul>
+          <div style="margin-top:10px" class="fine">Includes access membership ($240/mo).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUBS -->
+  <section id="clubs" class="section">
+    <div class="container">
+      <h3>Private Clubs</h3>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="package">
+          <h4>Private Client Club</h4>
+          <div class="price">$240/month • invite‑only</div>
+          <ul>
+            <li>Immediate response (priority channel)</li>
+            <li>Insider originality insights (monthly)</li>
+            <li>Guaranteed opportunities & curated intros</li>
+            <li>Ongoing spotlight in Signature D media</li>
+          </ul>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="/private-club.html">Request Invitation</a>
+          </div>
+        </div>
+        <div class="package">
+          <h4>Influencer Access Club</h4>
+          <div class="price">$500–$2,000/month • approval required</div>
+          <ul>
+            <li>2–5 guaranteed brand connections/month</li>
+            <li>Paid campaign placements & cross‑promotions</li>
+            <li>Spotlight in decks & reels to brands</li>
+            <li>Concierge support for deals</li>
+          </ul>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="/influencer-club.html">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="section">
+    <div class="container">
+      <h3>Founding Partners</h3>
+      <p class="fine">Early anchor brands helping shape the Signature D network in Orlando.</p>
+      <div class="logos" style="margin-top:8px">
+        <div class="logoTag">Your Logo Here</div>
+        <div class="logoTag">Anchor Brand</div>
+        <div class="logoTag">Hotel / Retail</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / SHOWCASE -->
+  <section id="work" class="section">
+    <div class="container">
+      <h3>Selected Style</h3>
+      <div class="showcase" style="margin-top:12px">
+        <div class="shot">Emerald • Gold • Silver</div>
+        <div class="shot">Cinematic Confidence Card</div>
+        <div class="shot">Luxury Landing Page</div>
+      </div>
+      <p class="fine">Replace with your visuals (confidence cards, reels, shots).</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / EMAIL LIST -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h3>Start in 60 seconds</h3>
+      <div class="ctaRow">
+        <div class="package">
+          <h4>$1 Mini Audit</h4>
+          <p class="fine">One page. Three fixes. Delivered in 24 hours.</p>
+          <a class="btn gold" href="https://cash.app/$YOURCASH/1" target="_blank">Pay $1 via Cash App</a>
+          <p class="fine" style="margin-top:8px">After payment, email your brand + link to <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a>.</p>
+        </div>
+        <div class="package">
+          <h4>Join the List</h4>
+          <p class="fine">Be first to know when new cohort seats open.</p>
+          <!-- Replace this iframe src with your Google Form embed URL -->
+          <iframe src="" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;border:1px solid rgba(230,234,239,.12);background:rgba(255,255,255,.02)"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+      <div>© <span id="yr"></span> DeVirn Signature House, Inc.</div>
+      <div class="fine">We don’t chase attention — we own it.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Confidence Card interactions
+    const quotes=[
+      "We don’t chase attention — we own it.",
+      "Not forced. Not fabricated. Inevitable.",
+      "Luxury isn’t loud. It’s undeniable.",
+      "Precision over noise. Presence over hype.",
+      "Make it timeless. Make it inevitable."
+    ];
+    const card=document.getElementById('confidenceCard');
+    const quoteEl=document.getElementById('quote');
+    const shuffle=()=>{const next=quotes[Math.floor(Math.random()*quotes.length)];quoteEl.style.opacity=0;setTimeout(()=>{quoteEl.textContent=next;quoteEl.style.opacity=1;},160)};
+    document.getElementById('shuffleBtn').addEventListener('click',shuffle);
+    card.addEventListener('mousemove',(e)=>{
+      const r=card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
+      card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
+    });
+    document.getElementById('yr').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
