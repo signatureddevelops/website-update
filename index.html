@@ -47,15 +47,27 @@
     .chip{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(230,234,239,.14);background:rgba(255,217,120,.12);color:var(--gold)}
 
     /* Thin start ribbon */
-    .start-ribbon{
-      display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:12px;
-      padding:10px 14px;margin-top:14px;border-radius:12px;
-      background:linear-gradient(135deg,rgba(255,217,120,.07),rgba(255,255,255,.03));
-      border:1px solid rgba(230,234,239,.08)
-    }
-    .start-ribbon .label{font-weight:700;letter-spacing:.2px}
-    .start-ribbon .line{opacity:.85;font-size:14px}
-    .start-ribbon .btn{padding:8px 14px;font-size:14px}
+<!-- Sleek Start Banner -->
+<div class="start-ribbon" aria-label="Fast start banner">
+  <span class="label">⚡ Start in 60 seconds</span>
+  <span class="line">$1 audit today → 10-min plan tomorrow.</span>
+
+  <!-- Cash App (direct pay) -->
+  <a class="btn gold" href="https://cash.app/93SignatureD/1" target="_blank" rel="noopener">
+    Pay $1 via Cash App
+  </a>
+
+  <!-- Audit Form (Stripe + auto thank-you) -->
+  <a class="btn silver" href="audit.html#start">
+    Use Audit Form
+  </a>
+</div>
+
+<!-- Cash App users → gentle instruction to still submit the form -->
+<p class="fine" style="margin:10px 0 0 0;">
+  If you use Cash App, please also <a href="audit.html#start">fill out this quick audit form</a> so we can deliver your audit and route you to the confirmation page.
+</p>
+
 
     /* Sections */
     .section{padding:56px 24px;border-top:1px solid rgba(230,234,239,.08)}
